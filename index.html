@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)http://one.zju.edu.cn/taskcenter/wechat/index?membership=noauto -->
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>服务大厅</title>
+
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="cache-control" content="max-age=0">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta http-equiv="expires" content="Tue, 01 Jan 1970 1:00:00 GMT">
+	<meta http-equiv="pragma" content="no-cache">
+
+
+	<link rel="stylesheet" href="./服务大厅_files/font-awesome.min.css">
+	<link rel="stylesheet" href="./服务大厅_files/jquery.gritter.css">
+	<link rel="stylesheet" href="./服务大厅_files/jstarbox.css">
+	<link rel="stylesheet" href="./服务大厅_files/rateit.css">
+
+
+
+	<link rel="stylesheet" href="./服务大厅_files/wechat.css">
+
+	<!-- basic scripts -->
+	<script src="./服务大厅_files/hm.js.下载"></script>
+	<script src="./服务大厅_files/json2.js.下载"></script>
+	<script src="./服务大厅_files/jquery.min.js.下载"></script>
+	<script src="./服务大厅_files/jquery.timestamp.js.下载"></script>
+	<script src="./服务大厅_files/layer.js.下载"></script>
+	<link rel="stylesheet" href="./服务大厅_files/layer.css" id="layuicss-skinlayercss">
+	<script src="./服务大厅_files/jquery.noty.packaged.min.js.下载"></script>
+	<script src="./服务大厅_files/jquery.fly.js.下载"></script>
+	<script src="./服务大厅_files/jquery-migrate-1.2.0.min.js.下载"></script>
+	<script src="./服务大厅_files/jquery.placeholder.min.js.下载"></script>
+	<script src="./服务大厅_files/jquery.cookie.js.下载"></script>
+	<script src="./服务大厅_files/bootstrap.min.js.下载"></script>
+	<script src="./服务大厅_files/bootbox.min.js.下载"></script>
+
+	<script src="./服务大厅_files/jquery.gritter.min.js.下载"></script>
+
+	<script src="./服务大厅_files/underscore-min.js.下载"></script>
+	<script src="./服务大厅_files/backbone-min.js.下载"></script>
+	<script src="./服务大厅_files/backbone.fetch-cache.min.js.下载"></script>
+	<script src="./服务大厅_files/jstarbox.js.下载"></script>
+
+	<script src="./服务大厅_files/jquery.rateit.js.下载"></script>
+	<script src="./服务大厅_files/jquery.scrollLoading.min.js.下载"></script>
+	<script src="./服务大厅_files/TouchSlide.1.1.js.下载"></script>
+	<script src="./服务大厅_files/jquery.tinycarousel.js.下载"></script>
+	<script src="./服务大厅_files/jquery.paging.js.下载"></script>
+	<script src="./服务大厅_files/jquery.easy-paging.js.下载"></script>
+	<script src="./服务大厅_files/jquery.easy-pie-chart.min.js.下载"></script>
+	<script src="./服务大厅_files/jquery.SuperSlide.2.1.js.下载"></script>
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lte IE 8]>
+	<script src="/taskcenter/resources/common/js/html5shiv.js?_v=20210607-142201"></script>
+	<script src="/taskcenter/resources/common/js/respond.min.js?_v=20210607-142201"></script>
+	<![endif]-->
+	<script src="./服务大厅_files/jquery-textoverflow.js.下载"></script>
+
+	<script src="./服务大厅_files/public.js.下载"></script>
+
+
+	<script>
+		Global = {
+			contentpath: "/taskcenter/",
+			bodyHeight: $('body').height(),
+			cacheTime: 6000,
+			debugModal: false,
+			CSRFToken: "68c46807-3b53-42c8-982a-ab2e88549cff",
+			resourceUrl: "/taskcenter/resources/zju/beta2",
+			resSys: "/taskcenter/resources/common",
+			userId: "01c152fc-ca1a-11eb-96e8-005056838980",
+			loginName: "王耀波",
+			membership: "noauto",
+			deviceName: "",
+			tag: "",
+			pathName: "apps",
+			supportFrame: "include",
+			loginStatus: "",
+			imageUrl: "http://one.zju.edu.cn/infoplus/file/enterprise/4cea3bc5-b05b-4f2f-91b6-e96ea2cad10a/icon",
+			contentSelector: ".contents",
+			templateSelector: "#contentsTemplate",
+			scrollTop: true,
+			titleMap: {},
+			hash: "",
+			dataName: "apps",
+			isLoading: true,
+			loginUrl: "",
+			version: "20210607-142201",
+			isDebug: "false",
+			locale: "zh",
+			positionTag: "",
+			isTeacher: "false",
+			homeAccessTimes: "",
+			hrbeuCmsUrl: "",
+			locationHost: "http://one.zju.edu.cn/taskcenter/",
+			order: "auto"
+		};
+
+		Global._parameter = {};
+		Global.apps = [];
+		Global.todos = [];
+		Global.doings = [];
+		Global.dones = [];
+		Global.unrates = [];
+		Global.completeds = [];
+		Global.ccs = [];
+		Global.merges = [];
+		Global.selectorMap = {
+			".btn-favorite": "click", ".btn-favorite-remove": "click"
+			, ".tag-select": "change", ".search-input": "keydown", ".btn-search-input": "click"
+		};
+		Global.hashMap = {
+			"apps": "contentsTemplate", "audit": "contentsAuditTemplate", "todo": "contentsTodoTemplate"
+			, "doing": "contentsDoingTemplate", "done": "contentsDoneTemplate", "unrate": "contentsUnrateTemplate"
+			, "todohistory": "contentsTodoHistoryTemplate", "audithistory": "contentsAuditHistoryTemplate"
+		};
+		Global.apiMap = {
+			"api/me/apps": "apps", "api/me/tasks/todo": "todos", "api/me/processes/doing?limit=%s&start=%s&keyword=%s": "doings"
+			, "api/me/processes/done?limit=%s&start=%s&keyword=%s": "dones", "api/me/processes/completed?limit=%s&start=%s&keyword=%s": "completeds",
+			"api/process/%s": "processes", "api/me/processes/merge": "merges", "api/me/processes/todo": "mergeTodos",
+			"api/me/processes/unrated": "unrates", "api/me/processes/cc?limit=%s&start=%s&keyword=%s": "ccs"
+		};
+		Global.sepMap = { "audit": "true", "audithistory": "false", "completed": "true", "merge": "false", "approval": "true" };
+		Global.defaultTags = { "ALL": "全部", "COLLECT": "收藏" };
+		Global.query = { limit: 10, start: 0, pageSize: 10, data: {} };
+		Global.rapidHandle = { checked: {}, names: {}, actions: {}, isFinshed: true };
+		Global.rapidCc = { chooseAll: false, checked: {} };
+		Global.app = { palette: "green" };
+		Global.dataLength = {};
+		Global.rate = {};
+		if (Global.deviceName != 'mobile') {
+			Global.scrollTop = false;
+		}
+		$.cookie.json = true;
+
+	</script>
+	<script src="./服务大厅_files/flow.js.下载"></script>
+
+
+</head>
+
+<body class="no-skin">
+	<div class="sysu-contents">
+
+		<div class="container">
+			<div class="hd">
+				<div class="weui_cell base_cell">
+					<div class="weui_cell_ft toIndex"><a href="http://one.zju.edu.cn/taskcenter/wechat/index"><i
+								class="iconfont">&#xe600;</i>全部事项</a></div>
+					<div class="weui_cell_bd weui_cell_primary">
+						<p>网上办事大厅</p>
+						<!-- <p class="logo1" style="margin-right:30px;"> -->
+						</p>
+					</div>
+					<div class="weui_cell_ft">
+						<a href="http://one.zju.edu.cn/taskcenter/wechat/search" class="weui_cell_ft_search" title="搜索">
+							<i class="iconfont">&#xe601;</i>
+						</a>
+						<!--收藏图标 暂时 去掉 
+	        	<a href="#"  title=" "><i class="iconfont" style="padding-left: 20px;">&#xe602;</i></a>
+				-->
+					</div>
+				</div>
+
+				<div class="weui_tabbar">
+					<a href="http://one.zju.edu.cn/taskcenter/wechat/todo" class="weui_tabbar_item">
+						<p class="weui_tabbar_label">待办理</p>
+						<div class="weui_tabbar_icon"><img src="./服务大厅_files/icon_nav_1.png" alt=""></div>
+					</a>
+					<a href="http://one.zju.edu.cn/taskcenter/wechat/flow_cc" class="weui_tabbar_item">
+						<p class="weui_tabbar_label">待审核</p>
+						<div class="weui_tabbar_icon"><img src="./服务大厅_files/icon_nav_2.png" alt=""></div>
+					</a>
+					<a href="http://one.zju.edu.cn/taskcenter/wechat/myApply" class="weui_tabbar_item ">
+						<p class="weui_tabbar_label">进行中</p>
+						<div class="weui_tabbar_icon"><img src="./服务大厅_files/icon_nav_3.png" alt=""></div>
+					</a>
+					<!--<a href="/taskcenter/wechat/doing" class="weui_tabbar_item">
+	            <p class="weui_tabbar_label">进行中</p>
+	            <div class="weui_tabbar_icon"><img src="/taskcenter/resources/zju/beta2/images/icon_nav_3.png" alt=""></div>
+	        </a>-->
+					<a href="http://one.zju.edu.cn/taskcenter/wechat/flow_completed" class="weui_tabbar_item">
+						<p class="weui_tabbar_label">已完成</p>
+						<div class="weui_tabbar_icon"><img src="./服务大厅_files/icon_nav_4.png" alt=""></div>
+					</a>
+				</div>
+			</div>
+
+			<div class="bd">
+				<!--
+		<div class="weui_panel none_before">
+			<div class="weui_cells_title orange"><b>紧急事项 !</b></div>
+			<div class="weui_cells list_cells none_before none_after">
+	    		<div class="weui_cell">
+		            <div class="weui_cell_bd weui_cell_primary">
+		                <h3><i class="iconfont">&#xe603;</i>民兵组织整顿审批流程</h3>
+		                <p>距离办理截止还有：<span class="orange">00:30:00</span><br>截止时间：2016/05/05<br>状态：待办理</p>
+		            </div>
+		            <div class="weui_cell_ft"><a href="#" class="weui_btn green_btn"><b>马上办理</b></a></div>
+		        </div>
+	    		<div class="weui_cell">
+		            <div class="weui_cell_bd weui_cell_primary">
+		                <h3><i class="iconfont">&#xe603;</i>民兵组织整顿审批流程</h3>
+		                <p>距离办理截止还有：<span class="orange">00:30:00</span><br>截止时间：2016/05/05<br>状态：待办理</p>
+		            </div>
+		            <div class="weui_cell_ft"><a href="#" class="weui_btn green_btn"><b>马上办理</b></a></div>
+		        </div>
+	    		<div class="weui_cell">
+		            <div class="weui_cell_bd weui_cell_primary">
+		                <h3><i class="iconfont">&#xe603;</i>民兵组织整顿审批流程</h3>
+		                <p>距离办理截止还有：<span class="orange">00:30:00</span><br>截止时间：2016/05/05<br>状态：待办理</p>
+		            </div>
+		            <div class="weui_cell_ft"><a href="#" class="weui_btn green_btn"><b>马上办理</b></a></div>
+		        </div>
+	        </div>
+	        <a href="#" class="weui_btn gray_btn">查看所有紧急事项</a>
+	    </div>
+	-->
+				<div class="weui_panel none_before weui_panel_recommend">
+					<div class="weui_cells_title yellow"><b>推荐事项</b></div>
+					<div class="weui_cells list_cells none_before none_after">
+
+						<div class="weui_cell">
+							<div class="weui_cell_bd weui_cell_primary">
+
+								<a target="_blank"
+									href="http://one.zju.edu.cn/infoplus/form/FW_ZXXSXSBXZM/start?theme=zju_new&amp;membership=noauto&amp;showRemark=false&amp;locale=zh"
+									title="Z1606:浙江大学在校学生现实表现证明">
+									<h3><i class="iconfont" title=".">&#xe603;</i>
+										本科生到校申请
+										<i class="icon_text icon_text_1">
+											<img src="./服务大厅_files/icon_text_1.png" alt="推荐"></i>
+									</h3>
+
+									<p>
+
+									</p>
+								</a>
+							</div>
+							<!--
+		            <div class="weui_cell_ft"><a href="#" title=" "><i class="iconfont like">&#xe602;</i></a></div>
+					-->
+						</div>
+						<div class="weui_cell">
+							<div class="weui_cell_bd weui_cell_primary">
+
+								<a target="_blank"
+									href="http://one.zju.edu.cn/infoplus/form/FW_ZXXSXSBXZM/start?theme=zju_new&amp;membership=noauto&amp;showRemark=false&amp;locale=zh"
+									title="Z1606:浙江大学在校学生现实表现证明">
+									<h3><i class="iconfont" title=".">&#xe603;</i>
+										学生到校信息上报
+										<i class="icon_text icon_text_1">
+											<img src="./服务大厅_files/icon_text_1.png" alt="推荐"></i>
+									</h3>
+									<p>
+
+									</p>
+								</a>
+							</div>
+							<!--
+		            <div class="weui_cell_ft"><a href="#" title=" "><i class="iconfont like">&#xe602;</i></a></div>
+					-->
+						</div>
+						<div class="weui_cell">
+							<div class="weui_cell_bd weui_cell_primary">
+
+								<a id="pass-code" href="./ZJUTQRCode-master/index.html" title="Z1606:浙江大学在校学生现实表现证明">
+									<h3><i class="iconfont" title=".">&#xe603;</i>
+										工大通行码领取(本科生)
+										<i class="icon_text icon_text_1">
+											<img src="./服务大厅_files/icon_text_1.png" alt="推荐"></i>
+									</h3>
+									<p>
+
+									</p>
+								</a>
+							</div>
+							<!--
+		            <div class="weui_cell_ft"><a href="#" title=" "><i class="iconfont like">&#xe602;</i></a></div>
+					-->
+						</div>
+
+					</div>
+				</div>
+
+				<div class="weui_panel none_before">
+					<div class="weui_cells_title green"><b>我的常办事项</b></div>
+					<div class="weui_cells list_cells none_before none_after">
+
+
+						<div class="weui_cell">
+							<div class="weui_cell_bd weui_cell_primary">
+
+								<a target="_blank"
+									href="http://one.zju.edu.cn/infoplus/form/FW_XSFXDJSJH/start?theme=zju_new&amp;membership=noauto&amp;showRemark=false&amp;locale=zh"
+									class="widget-elli" title="T0030:学生通行码申请">
+									<h3><i class="iconfont" title=".">&#xe603;</i> 浙江工业大学本科生选课流程 </h3>
+
+									<p>办理次数：<span app-stat-id="69f2d0b2-2266-4cab-826b-0ab4949d648c">0</span>次</p>
+								</a>
+							</div>
+						</div>
+
+						<div class="weui_cell">
+							<div class="weui_cell_bd weui_cell_primary">
+
+								<a target="_blank"
+									href="http://one.zju.edu.cn/infoplus/form/FW_SQXSLXBB/start?theme=zju_new&amp;membership=noauto&amp;showRemark=false&amp;locale=zh"
+									class="widget-elli" title="T0036:学生离校报备">
+									<h3><i class="iconfont" title=".">&#xe603;</i> 本科毕业生就业协议遗失补办 </h3>
+
+									<p>办理次数：<span app-stat-id="065096b9-eea9-492e-9fed-0c31ddbafd0c">0</span>次</p>
+								</a>
+							</div>
+						</div>
+
+						<div class="weui_cell">
+							<div class="weui_cell_bd weui_cell_primary">
+
+								<a target="_blank"
+									href="http://one.zju.edu.cn/infoplus/form/FW_XGYMJZYY/start?theme=zju_new&amp;membership=noauto&amp;showRemark=false&amp;locale=zh"
+									class="widget-elli" title="新冠疫苗接种预约">
+									<h3><i class="iconfont" title=".">&#xe603;</i> 企业校园招聘管理 </h3>
+
+									<p>办理次数：<span app-stat-id="cf11bea7-03e6-448d-8297-a77866cb568e">0</span>次</p>
+								</a>
+							</div>
+						</div>
+
+						<div class="weui_cell">
+							<div class="weui_cell_bd weui_cell_primary">
+
+								<a target="_blank"
+									href="http://one.zju.edu.cn/infoplus/form/FW_YJSLX/start?theme=zju_new&amp;membership=noauto&amp;showRemark=false&amp;locale=zh"
+									class="widget-elli" title="Z1722:研究生离校申请流程">
+									<h3><i class="iconfont" title=".">&#xe603;</i> 经济困难毕业生求职补贴申请 </h3>
+
+									<p>办理次数：<span app-stat-id="07a50937-c673-4d53-b730-b6f768717e9f">0</span>次</p>
+								</a>
+							</div>
+						</div>
+
+						<div class="weui_cell">
+							<div class="weui_cell_bd weui_cell_primary">
+
+								<a target="_blank"
+									href="http://one.zju.edu.cn/infoplus/form/ZJDXKJTBCLYXY/start?theme=zju_new&amp;membership=noauto&amp;showRemark=false&amp;locale=zh"
+									class="widget-elli" title="Z0385:科技投标材料用校印">
+									<h3><i class="iconfont" title=".">&#xe603;</i> 浙江工业大学本科生转专业申请 </h3>
+
+									<p>办理次数：<span app-stat-id="1ea793f7-0ded-4672-bb96-095cfbe2d46c">0</span>次</p>
+								</a>
+							</div>
+						</div>
+
+
+					</div>
+					<div class="spacing"><a href="http://one.zju.edu.cn/taskcenter/wechat/appall" class="weui_btn green_btn2"><i
+								class="iconfont">&#xe600;</i>全部事项</a></div>
+				</div>
+
+			</div>
+		</div>
+		<div class="right-bar">
+			<a href="http://one.zju.edu.cn/taskcenter/wechat/me">
+
+				<img class="weui_cell_ft_me" src="./服务大厅_files/personal-2.png">
+
+			</a>
+			<a href="javascript:scroll(0,0)"><img class="goto-up" src="./服务大厅_files/up-1.png"></a>
+		</div>
+	</div>
+
+
+	<script>
+		let name = '';
+		const query = window.location.search.substring(1);
+		let vars = query.split("&");
+		console.log(vars);
+		for (let i = 0; i < vars.length; i++) {
+			const pair = vars[i].split("=");
+			if (pair[0] == 'name') {
+				name = pair[1];
+			}
+		}
+
+		const a = document.querySelector('#pass-code');
+		a.href = './ZJUTQRCode-master/index.html?name='+ name;
+	</script>
+</body>
+
+</html>
